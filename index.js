@@ -2,17 +2,20 @@ require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const jwt = require("jsonwebtoken");
+const cors = require('cors')
+
+
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware to parse JSON
-app.use(bodyParser.json());
-
+app.use(bodyParser.json()); 
+app.use(cors());
 // Mock user data (in a real application, replace this with a database)
 const mockUser = {
-  email: "test@example.com",
-  password: "password123",
+  email: "admin@admin.com",
+  password: "admin",
 };
 
 // Route to authenticate and generate a token
